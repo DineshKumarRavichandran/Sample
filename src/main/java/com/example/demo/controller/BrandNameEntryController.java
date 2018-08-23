@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.BrandNameEntry;
 import com.example.demo.repository.BrandNameEntryRepository;
 
+import io.swagger.annotations.Api;
+import springfox.documentation.annotations.ApiIgnore;
 
+@ApiIgnore
+@Api(value="BrandName",description="brandname")
 @RestController
 public class BrandNameEntryController {
 

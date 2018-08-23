@@ -9,6 +9,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /*import org.springframework.context.annotation.Bean;
@@ -69,6 +70,10 @@ public class SwaggerConfig {
 		return new ApiInfoBuilder().title(title).description(description).license(LICENSE_TEXT)
 				.version(SWAGGER_API_VERSION).build();
 
+	}
+	@Bean
+	public UiConfiguration uiConfig() {
+	return new UiConfiguration(null, "list", "alpha", "schema", UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS, true, true,60000L);
 	}
 
 	@Bean

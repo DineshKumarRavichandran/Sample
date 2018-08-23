@@ -12,6 +12,8 @@ import com.example.demo.model.Products;
 import com.example.demo.repository.ProductsRepository;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
+
 
 @RestController
 public class ProductsController {
@@ -20,14 +22,14 @@ public class ProductsController {
 	ProductsRepository productsRepository;
 	
 	@PostMapping("/Product/load")
-	@ApiOperation("Post Product Details")
+	@ApiOperation(value="Post Product Details")
 	public List<Products> add(@RequestBody Products products){
 		productsRepository.save(products);
 		return productsRepository.findAll();
 	}
 	
 	@GetMapping("/Product/all")
-	@ApiOperation("Get Product Details")
+	@ApiOperation(value="Get Product Details",hidden=true)
 	public List<Products> show(){
 		return productsRepository.findAll();
 	}
