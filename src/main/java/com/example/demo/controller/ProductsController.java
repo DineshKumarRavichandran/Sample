@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Products;
 import com.example.demo.repository.ProductsRepository;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 public class ProductsController {
 
@@ -18,12 +20,14 @@ public class ProductsController {
 	ProductsRepository productsRepository;
 	
 	@PostMapping("/Product/load")
+	@ApiOperation("Post Product Details")
 	public List<Products> add(@RequestBody Products products){
 		productsRepository.save(products);
 		return productsRepository.findAll();
 	}
 	
 	@GetMapping("/Product/all")
+	@ApiOperation("Get Product Details")
 	public List<Products> show(){
 		return productsRepository.findAll();
 	}
